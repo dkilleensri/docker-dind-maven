@@ -10,4 +10,8 @@ if [ -f "${ARCHIVE}" ]; then
   tar xzf ${ARCHIVE} -C ${SRC_DIR}
 fi
 
+if [ -f /etc/gitlab-runner/certs/lpwgitp01.npd.com.cert ]; then
+  cp /etc/gitlab-runner/certs/lpwgitp01.npd.com.cert /usr/local/share/ca-certificates/ && update-ca-certificates
+fi
+
 exec "$@"
