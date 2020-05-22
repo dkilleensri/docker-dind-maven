@@ -9,7 +9,6 @@ RUN apk update && apk upgrade && \
     apk add --no-cache openjdk9 bash maven git openssh openrc
 RUN chmod 755 /docker-entrypoint.sh
 RUN export MAVEN_OPTS="-Xms1024m -Xmx4096m -XX:PermSize=1024m" && export _JAVA_OPTIONS=-Xmx2048m
-RUN java -XX:+PrintFlagsFinal -version | grep HeapSize
 WORKDIR /usr/local/src
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD bash
